@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,10 +37,27 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value = "/listUsers", method=RequestMethod.GET)
+	@RequestMapping(value = "/listUser", method=RequestMethod.GET)
 	public ModelAndView listUsers(ModelAndView mv) {
+		List<User> users = userService.findAll();
+		mv.addObject("users", users);
+		mv.setViewName("listUser");
+		return mv;
+		
+	}
+	
+	@RequestMapping(value = "/newUser", method=RequestMethod.GET)
+	public ModelAndView newUser(ModelAndView mv) {
 		mv.addObject("user", new User());
 		mv.setViewName("newUser");
+		return mv;
+		
+	}
+	
+	@RequestMapping(value = "/newUser", method=RequestMethod.POST)
+	public ModelAndView newUserPost(@RequestBody User user, ModelAndView mv) {
+		userService.saveUser(user);
+		mv.setViewName("listUser");
 		return mv;
 		
 	}

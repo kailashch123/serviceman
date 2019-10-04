@@ -3,6 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <p>
 
-<a href="<c:url value='/listUsers'/>">List Users</a>
+<a href="<c:url value='/listUser'/>">List Users</a>
 
 </p>

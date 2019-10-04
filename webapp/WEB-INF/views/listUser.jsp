@@ -27,27 +27,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${users}" var="user">
-                    <tr>
-                        <td>${user.firstName}</td>
-                        <td>${user.lastName}</td>
-                        <td>${user.loginName}</td>
-                        <td>${user.role}</td>
-                        <td>${user.email}</td>
-                        <td>${user.mobile}</td>
-                        <td>${user.dob}</td>
-                        <td>
-                        	<a href="<c:url value='/editUser-${user.userId}' />" class="btn btn-success custom-width">edit</a>
-                        	&nbsp;&nbsp;&nbsp;&nbsp;
-                        	<a href="<c:url value='/deleteUser-${user.userId}' />" class="btn btn-danger custom-width">delete</a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <c:choose>
+                	<c:when test="${empty users}">
+	                	<tr>
+	                        <td colspan="8">No data.</td>
+	                    </tr>
+                    </c:when>
+                	<c:otherwise>
+                		<c:forEach items="${users}" var="user">
+		                    <tr>
+		                        <td>${user.firstName}</td>
+		                        <td>${user.lastName}</td>
+		                        <td>${user.loginName}</td>
+		                        <td>${user.role}</td>
+		                        <td>${user.email}</td>
+		                        <td>${user.mobile}</td>
+		                        <td>${user.dob}</td>
+		                        <td>
+		                        	<a href="<c:url value='/editUser-${user.userId}' />" class="btn btn-success custom-width">edit</a>
+		                        	&nbsp;&nbsp;&nbsp;&nbsp;
+		                        	<a href="<c:url value='/deleteUser-${user.userId}' />" class="btn btn-danger custom-width">delete</a>
+		                        </td>
+		                    </tr>
+		                </c:forEach>
+                	</c:otherwise>
+                </c:choose>
                 </tbody>
             </table>
         </div>
         <div class="well">
-            <a href="<c:url value='/newuser' />">Add New User</a>
+            <a href="<c:url value='/newUser' />">Add New User</a>
         </div>
     </div>
 </body>

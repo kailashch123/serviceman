@@ -10,4 +10,6 @@ public interface IUserDao {
 
 	User findById(int userId);
 
+	User saveUser(User user);
+
 }

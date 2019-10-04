@@ -106,7 +106,7 @@
 	        </div>
 	        <div class="row">
 	            <div class="form-actions floatRight">
-                    <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/list' />">Cancel</a>
+                    <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
 	            </div>
 	        </div>
 	    </form:form>

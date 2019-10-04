@@ -10,4 +10,6 @@ public interface IUserService {
 
 	User findById(int userId);
 
+	User saveUser(User user);
+
 }
