@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class User {
@@ -95,6 +97,7 @@ public class User {
 		this.mobile = mobile;
 	}
 
+	@Temporal(TemporalType.DATE)
 	public Date getDob() {
 		return dob;
 	}

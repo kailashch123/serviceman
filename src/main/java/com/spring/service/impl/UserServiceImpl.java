@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.dao.iface.IUserDao;
 import com.spring.model.User;
-import com.spring.repository.iface.IUserDao;
 import com.spring.service.iface.IUserService;
 
 @Service("userService")
@@ -31,7 +31,13 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User saveUser(User user) {
 		User respUser = userDao.saveUser(user);
-		return null;
+		return respUser;
 	}
+
+	@Override
+	public List<String> search(String parameter) {
+		return userDao.search(parameter);
+	}
+
 
 }

@@ -1,4 +1,4 @@
-package com.spring.repository.iface;
+package com.spring.dao.iface;
 
 import java.util.List;
 
@@ -11,5 +11,7 @@ public interface IUserDao {
 	User findById(int userId);
 
 	User saveUser(User user);
+
+	List<String> search(String parameter);
 
 }

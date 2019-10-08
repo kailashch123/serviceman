@@ -4,7 +4,7 @@
  
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Users List</title>
+    <title>Vehicle List</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
@@ -16,41 +16,31 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>LoginName</th>
-                        <th>Role</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>DoB</th>
-                        <th>Vehicle(s)</th>
-                        <th></th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>MakeYear</th>
+                        <th>RegNumber</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <c:choose>
                 	<c:when test="${empty users}">
 	                	<tr>
-	                        <td colspan="8">No data.</td>
+	                        <td colspan="5">No data.</td>
 	                    </tr>
                     </c:when>
                 	<c:otherwise>
-                		<c:forEach items="${users}" var="user">
+                		<c:forEach items="${vehicles}" var="vehicle">
 		                    <tr>
-		                        <td>${user.firstName}</td>
-		                        <td>${user.lastName}</td>
-		                        <td>${user.loginName}</td>
-		                        <td>${user.role}</td>
-		                        <td>${user.email}</td>
-		                        <td>${user.mobile}</td>
-		                        <td>${user.dob}</td>
+		                        <td>${vehicle.brand}</td>
+		                        <td>${vehicle.model}</td>
+		                        <td>${vehicle.makeYear}</td>
+		                        <td>${vehicle.regNumber}</td>
 		                        <td>
-	                        	 	<a href="<c:url value='/vehicles-${user.userId}' />" >Vehicles</a>
-					        	</td>
-		                        <td>
-		                        	<a href="<c:url value='/editUser-${user.userId}' />" class="btn btn-success custom-width">edit</a>
-		                        	&nbsp;&nbsp;&nbsp;&nbsp;
-		                        	<a href="<c:url value='/deleteUser-${user.userId}' />" class="btn btn-danger custom-width">delete</a>
+		                        	<a href="<c:url value='/editVehicle/${vehicle.vehicleId}' />" class="btn btn-success custom-width">edit</a>
+		                        	&nbsp;&nbsp;&nbsp;
+		                        	<a href="<c:url value='/deleteVehicle/${vehicle.vehicleId}' />" class="btn btn-danger custom-width">delete</a>
 		                        </td>
 		                    </tr>
 		                </c:forEach>

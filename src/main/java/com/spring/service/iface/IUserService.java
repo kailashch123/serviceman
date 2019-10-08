@@ -12,4 +12,6 @@ public interface IUserService {
 
 	User saveUser(User user);
 
+	List<String> search(String parameter);
+
 }

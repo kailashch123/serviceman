@@ -1,12 +1,16 @@
-package com.spring.repository.impl;
+package com.spring.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.spring.dao.iface.IUserDao;
 import com.spring.model.User;
-import com.spring.repository.iface.IUserDao;
 
 @Repository("userRepository")
 public class UserDaoImpl extends AbstractDao<Integer, User> implements IUserDao {
@@ -29,6 +33,18 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements IUserDao 
 	public User saveUser(User user) {
 		save(user);
 		return user;
+	}
+
+	@Override
+	public List<String> search(String parameter) {
+		Criteria cri = createEntityCriteria();
+		cri.add(Restrictions.like("firstName", parameter, MatchMode.ANYWHERE));
+		List<User> users = cri.list();
+		List<String> stringList = new ArrayList<String>();
+		for(User u : users) {
+			stringList.add(u.getFirstName()+" "+u.getLastName()+" ("+u.getEmail()+")");
+		}
+		return stringList;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.spring.repository.impl;
+package com.spring.dao.impl;
 
 import java.io.Serializable;
 

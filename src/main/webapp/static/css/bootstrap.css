@@ -31,11 +31,11 @@
 	-breakpoint-md: 768px; -
 	-breakpoint-lg: 992px; -
 	-breakpoint-xl: 1200px; -
-	-font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+	-font-family-sans-serif: Calibri,-apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji"; -
-	-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+	-font-family-monospace: Calibri,SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace
 }
 
@@ -44,7 +44,7 @@
 }
 
 html {
-	font-family: sans-serif;
+	font-family: Calibri;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent
@@ -57,10 +57,10 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav,
 
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	font-family: Calibri,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	font-size: 1rem;
+	font-size: 13px;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #212529;
@@ -176,9 +176,9 @@ a:not ([href] ):not ([tabindex] ):focus {
 }
 
 code, kbd, pre, samp {
-	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+	font-family: Calibri,SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
-	font-size: 1em
+	font-size: 13px;
 }
 
 pre {
@@ -219,7 +219,7 @@ th {
 
 label {
 	display: inline-block;
-	margin-bottom: .5rem
+/* 	margin-bottom: .5rem */
 }
 
 button {
@@ -293,7 +293,7 @@ legend {
 	max-width: 100%;
 	padding: 0;
 	margin-bottom: .5rem;
-	font-size: 1.5rem;
+	font-size: 13px;
 	line-height: inherit;
 	color: inherit;
 	white-space: normal
@@ -346,19 +346,19 @@ template {
 }
 
 .h1, h1 {
-	font-size: 2.5rem
+	font-size: 13px;
 }
 
 .h2, h2 {
-	font-size: 2rem
+	font-size: 13px;
 }
 
 .h3, h3 {
-	font-size: 1.75rem
+	font-size: 13px;
 }
 
 .h4, h4 {
-	font-size: 1.5rem
+	font-size: 13px;
 }
 
 .h5, h5 {
@@ -366,34 +366,34 @@ template {
 }
 
 .h6, h6 {
-	font-size: 1rem
+	font-size: 18px;
 }
 
 .lead {
-	font-size: 1.25rem;
-	font-weight: 300
+	font-size: 15px;
+    font-weight: bolder;
 }
 
 .display-1 {
-	font-size: 6rem;
+	font-size: 13px;
 	font-weight: 300;
 	line-height: 1.2
 }
 
 .display-2 {
-	font-size: 5.5rem;
+	font-size: 13px;
 	font-weight: 300;
 	line-height: 1.2
 }
 
 .display-3 {
-	font-size: 4.5rem;
+	font-size: 13px;
 	font-weight: 300;
 	line-height: 1.2
 }
 
 .display-4 {
-	font-size: 3.5rem;
+	font-size: 13px;
 	font-weight: 300;
 	line-height: 1.2
 }
@@ -440,7 +440,7 @@ hr {
 
 .blockquote {
 	margin-bottom: 1rem;
-	font-size: 1.25rem
+	font-size: 13px;
 }
 
 .blockquote-footer {
@@ -567,8 +567,8 @@ pre code {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin-right: -15px;
-	margin-left: -15px
+/* 	margin-right: -15px; */
+/* 	margin-left: -15px */
 }
 
 .no-gutters {
@@ -1499,9 +1499,10 @@ pre code {
 }
 
 .table td, .table th {
-	padding: .75rem;
+/* 	padding: .75rem; */
 	vertical-align: top;
-	border-top: 1px solid #dee2e6
+	border-top: 1px solid #dee2e6;
+	font-size: 13px;
 }
 
 .table thead th {
@@ -1792,10 +1793,10 @@ pre code {
 
 .form-control {
 	display: block;
-	width: 100%;
-	height: calc(1.5em + .75rem + 2px);
-	padding: .375rem .75rem;
-	font-size: 1rem;
+	width: 50%;
+/* 	height: calc(1.5em + .75rem + 2px); */
+	padding: 2px 5px;
+	font-size: 13px;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #495057;
@@ -1876,14 +1877,14 @@ select.form-control:focus::-ms-value {
 .col-form-label-lg {
 	padding-top: calc(.5rem + 1px);
 	padding-bottom: calc(.5rem + 1px);
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1.5
 }
 
 .col-form-label-sm {
 	padding-top: calc(.25rem + 1px);
 	padding-bottom: calc(.25rem + 1px);
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5
 }
 
@@ -1909,7 +1910,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
 	height: calc(1.5em + .5rem + 2px);
 	padding: .25rem .5rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .2rem
 }
@@ -1917,7 +1918,7 @@ select.form-control:focus::-ms-value {
 .form-control-lg {
 	height: calc(1.5em + 1rem + 2px);
 	padding: .5rem 1rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .3rem
 }
@@ -1931,7 +1932,7 @@ textarea.form-control {
 }
 
 .form-group {
-	margin-bottom: 1rem
+	margin-bottom: 5px;
 }
 
 .form-text {
@@ -2005,7 +2006,7 @@ textarea.form-control {
 	max-width: 100%;
 	padding: .25rem .5rem;
 	margin-top: .1rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5;
 	color: #fff;
 	background-color: rgba(40, 167, 69, .9);
@@ -2149,7 +2150,7 @@ textarea.form-control {
 	max-width: 100%;
 	padding: .25rem .5rem;
 	margin-top: .1rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5;
 	color: #fff;
 	background-color: rgba(220, 53, 69, .9);
@@ -2365,8 +2366,8 @@ textarea.form-control {
 	user-select: none;
 	background-color: transparent;
 	border: 1px solid transparent;
-	padding: .375rem .75rem;
-	font-size: 1rem;
+	padding: 0px 5px;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .25rem;
 	transition: color .15s ease-in-out, background-color .15s ease-in-out,
@@ -2976,14 +2977,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-group-lg>.btn, .btn-lg {
 	padding: .5rem 1rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .3rem
 }
 
 .btn-group-sm>.btn, .btn-sm {
 	padding: .25rem .5rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .2rem
 }
@@ -3066,7 +3067,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	min-width: 10rem;
 	padding: .5rem 0;
 	margin: .125rem 0 0;
-	font-size: 1rem;
+	font-size: 13px;
 	color: #212529;
 	text-align: left;
 	list-style: none;
@@ -3268,7 +3269,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	display: block;
 	padding: .5rem 1.5rem;
 	margin-bottom: 0;
-	font-size: .875rem;
+	font-size: 13px;
 	color: #6c757d;
 	white-space: nowrap
 }
@@ -3507,7 +3508,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	align-items: center;
 	padding: .375rem .75rem;
 	margin-bottom: 0;
-	font-size: 1rem;
+	font-size: 13px;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #495057;
@@ -3533,7 +3534,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	.input-group-lg>.input-group-prepend>.btn, .input-group-lg>.input-group-prepend>.input-group-text
 	{
 	padding: .5rem 1rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .3rem
 }
@@ -3548,7 +3549,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	.input-group-sm>.input-group-prepend>.btn, .input-group-sm>.input-group-prepend>.input-group-text
 	{
 	padding: .25rem .5rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5;
 	border-radius: .2rem
 }
@@ -3755,7 +3756,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	width: 100%;
 	height: calc(1.5em + .75rem + 2px);
 	padding: .375rem 1.75rem .375rem .75rem;
-	font-size: 1rem;
+	font-size: 13px;
 	font-weight: 400;
 	line-height: 1.5;
 	color: #495057;
@@ -3802,7 +3803,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	padding-top: .25rem;
 	padding-bottom: .25rem;
 	padding-left: .5rem;
-	font-size: .875rem
+	font-size: 13px;
 }
 
 .custom-select-lg {
@@ -3810,7 +3811,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	padding-top: .5rem;
 	padding-bottom: .5rem;
 	padding-left: 1rem;
-	font-size: 1.25rem
+	font-size: 13px;
 }
 
 .custom-file {
@@ -4172,7 +4173,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	padding-top: .3125rem;
 	padding-bottom: .3125rem;
 	margin-right: 1rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: inherit;
 	white-space: nowrap
 }
@@ -4218,7 +4219,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .navbar-toggler {
 	padding: .25rem .75rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1;
 	background-color: transparent;
 	border: 1px solid transparent;
@@ -4885,7 +4886,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .pagination-lg .page-link {
 	padding: .75rem 1.5rem;
-	font-size: 1.25rem;
+	font-size: 13px;
 	line-height: 1.5
 }
 
@@ -4901,7 +4902,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .pagination-sm .page-link {
 	padding: .25rem .5rem;
-	font-size: .875rem;
+	font-size: 13px;
 	line-height: 1.5
 }
 
@@ -5258,7 +5259,7 @@ to {
 	display: flex;
 	height: 1rem;
 	overflow: hidden;
-	font-size: .75rem;
+	font-size: 13px;
 	background-color: #e9ecef;
 	border-radius: .25rem
 }
@@ -5642,7 +5643,7 @@ to {
 
 .close {
 	float: right;
-	font-size: 1.5rem;
+	font-size: 13px;
 	font-weight: 700;
 	line-height: 1;
 	color: #000;
@@ -5676,7 +5677,7 @@ a.close.disabled {
 .toast {
 	max-width: 350px;
 	overflow: hidden;
-	font-size: .875rem;
+	font-size: 13px;
 	background-color: rgba(255, 255, 255, .85);
 	background-clip: padding-box;
 	border: 1px solid rgba(0, 0, 0, .1);
@@ -5949,7 +5950,7 @@ a.close.disabled {
 	z-index: 1070;
 	display: block;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	font-family: Calibri,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-style: normal;
@@ -5965,7 +5966,7 @@ a.close.disabled {
 	word-spacing: normal;
 	white-space: normal;
 	line-break: auto;
-	font-size: .875rem;
+	font-size: 13px;
 	word-wrap: break-word;
 	opacity: 0
 }
@@ -6069,7 +6070,7 @@ a.close.disabled {
 	z-index: 1060;
 	display: block;
 	max-width: 276px;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	font-family: Calibri,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-style: normal;
@@ -6085,7 +6086,7 @@ a.close.disabled {
 	word-spacing: normal;
 	white-space: normal;
 	line-break: auto;
-	font-size: .875rem;
+	font-size: 13px;
 	word-wrap: break-word;
 	background-color: #fff;
 	background-clip: padding-box;
@@ -6219,7 +6220,7 @@ a.close.disabled {
 .popover-header {
 	padding: .5rem .75rem;
 	margin-bottom: 0;
-	font-size: 1rem;
+	font-size: 13px;
 	background-color: #f7f7f7;
 	border-bottom: 1px solid #ebebeb;
 	border-top-left-radius: calc(.3rem - 1px);
@@ -9378,7 +9379,7 @@ supports ((position:-webkit-sticky ) or (position:sticky )){ .
 }
 
 .text-monospace {
-	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+	font-family: Calibri,SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace !important
 }
 

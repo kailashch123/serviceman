@@ -5,25 +5,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Vehicle {
 
-	private Integer hevicleId;
+	private Integer vehicleId;
 	private String brand;
 	private String model;
 	private int makeYear;
 	private String regNumber;
 	private User owner;
+	private String status;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getHevicleId() {
-		return hevicleId;
+	public Integer getVehicleId() {
+		return vehicleId;
 	}
 
-	public void setHevicleId(Integer hevicleId) {
-		this.hevicleId = hevicleId;
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
 	public String getBrand() {
@@ -65,6 +68,14 @@ public class Vehicle {
 
 	public void setOwner(User owner) {
 		this.owner = owner;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

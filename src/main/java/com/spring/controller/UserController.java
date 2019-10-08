@@ -2,12 +2,14 @@ package com.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.model.User;
@@ -55,10 +57,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/newUser", method=RequestMethod.POST)
-	public ModelAndView newUserPost(@RequestBody User user, ModelAndView mv) {
+	public String newUserPost(User user, ModelAndView mv) {
 		userService.saveUser(user);
 		mv.setViewName("listUser");
-		return mv;
+		return "redirect:/getAllUsers";
 		
 	}
+	
 }

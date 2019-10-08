@@ -4,10 +4,18 @@
  
 <html>
 	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	    <title>User Registration</title>
 	    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+     	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
 	</head>
 	<body>
 	    <div class="generic-container">
@@ -96,6 +104,14 @@
 	                </div>
 	            </div>
 	        </div>
+	         <div class="row">
+	            <div class="form-group col-md-12">
+	                <label class="col-md-3 control-lable" for="dob">DoB(mm/dd/yyyy)</label>
+	                <div class="col-md-7">
+	                    <form:input type="text" path="dob" id="datepicker" class="form-control input-sm" />
+	                </div>
+	            </div>
+	        </div>
 	        <div class="row">
 	            <div class="form-group col-md-12">
 	                <label class="col-md-3 control-lable" for="address">Address</label>
@@ -104,7 +120,8 @@
 	                </div>
 	            </div>
 	        </div>
-	        <div class="row">
+	        
+	        <div class="row" style="float: right;">
 	            <div class="form-actions floatRight">
                     <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
 	            </div>
