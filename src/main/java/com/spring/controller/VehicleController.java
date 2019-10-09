@@ -2,18 +2,20 @@ package com.spring.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.model.Vehicle;
-import com.spring.service.iface.IUserService;
 import com.spring.service.iface.IVehicleService;
 
 @Controller
@@ -67,12 +69,6 @@ public class VehicleController {
 		return "redirect:/vehicles";
 	}
 	
-	@RequestMapping(value = "/searchOwner", method = RequestMethod.GET)
-	@ResponseBody
-	public List<String> search(HttpServletRequest request) {
-		return vehicleService.searchOwner(request.getParameter("term"));
-	}
-	
 	@RequestMapping(value = "/newVehicle", method = RequestMethod.GET)
 	public ModelAndView newVehicle(ModelAndView mv) {
 		mv.addObject("vehicle", new Vehicle());
@@ -86,6 +82,23 @@ public class VehicleController {
 		mv.setViewName("listUser");
 		return "redirect:/getAllUsers";
 		
+	}
+	
+	@RequestMapping(value = "/vehicle/searchOwner", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<String> doAutoComplete(@RequestParam("searchTerm") final String searchTerm) {
+		
+		List<String> strings = vehicleService.searchOwner(searchTerm);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String resp = "";
+
+		try {
+			resp = mapper.writeValueAsString(strings);
+		} catch (JsonProcessingException e) {
+		}
+
+		return new ResponseEntity<String>(resp, HttpStatus.OK);
 	}
 
 }

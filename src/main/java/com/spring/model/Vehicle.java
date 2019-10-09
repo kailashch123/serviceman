@@ -1,5 +1,7 @@
 package com.spring.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +16,11 @@ public class Vehicle {
 	private Integer vehicleId;
 	private String brand;
 	private String model;
-	private int makeYear;
+	private Date makeYear;
 	private String regNumber;
 	private User owner;
 	private String status;
+	private String ownerString;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,11 +48,12 @@ public class Vehicle {
 		this.model = model;
 	}
 
-	public int getMakeYear() {
+	@Temporal(TemporalType.DATE)
+	public Date getMakeYear() {
 		return makeYear;
 	}
 
-	public void setMakeYear(int makeYear) {
+	public void setMakeYear(Date makeYear) {
 		this.makeYear = makeYear;
 	}
 
@@ -76,6 +80,14 @@ public class Vehicle {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public String getOwnerString() {
+		return ownerString;
+	}
+
+	public void setOwnerString(String ownerString) {
+		this.ownerString = ownerString;
 	}
 
 }

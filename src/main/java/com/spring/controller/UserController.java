@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,48 +21,53 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
-	
-	@RequestMapping(value = "/getAllUsers", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
 	public ModelAndView getAll(ModelAndView mv) {
 		List<User> users = userService.findAll();
 		mv.addObject("users", users);
 		mv.setViewName("listUser");
 		return mv;
-		
+
 	}
-	
-	@RequestMapping(value = "/getUserById/{userId}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/getUserById/{userId}", method = RequestMethod.GET)
 	public ModelAndView getById(@PathVariable("userId") int userId, ModelAndView mv) {
 		User user = userService.findById(userId);
 		mv.addObject("user", user);
 		mv.setViewName("userDetail");
 		return mv;
-		
+
 	}
-	
-	@RequestMapping(value = "/listUser", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/listUser", method = RequestMethod.GET)
 	public ModelAndView listUsers(ModelAndView mv) {
 		List<User> users = userService.findAll();
 		mv.addObject("users", users);
 		mv.setViewName("listUser");
 		return mv;
-		
+
 	}
-	
-	@RequestMapping(value = "/newUser", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView mv) {
 		mv.addObject("user", new User());
 		mv.setViewName("newUser");
 		return mv;
-		
+
 	}
-	
-	@RequestMapping(value = "/newUser", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/newUser", method = RequestMethod.POST)
 	public String newUserPost(User user, ModelAndView mv) {
 		userService.saveUser(user);
 		mv.setViewName("listUser");
 		return "redirect:/getAllUsers";
-		
+
 	}
-	
+
+	@RequestMapping(value = "/user/search", method = RequestMethod.GET, headers="Accept=*/*")
+	public @ResponseBody List<String> getTechList(@RequestParam("term") String query) {
+		List<String> countryList = userService.search(query);
+		return countryList;
+	}
 }

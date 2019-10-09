@@ -12,16 +12,18 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         
-		<script src="<c:url value='static/js/jquery-ui-1.8.2.custom.min.js' />"></script>
-	  	
+
+		<link href="<c:url value='/static/css/jquery-ui.css' />" rel="stylesheet"></link>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
         <script>
-            $(function () {
-                $("#datepicker").datepicker();
-            });
             $(document).ready(function() {
-        		$('#tags').autocomplete({
-        			source : '${pageContext.request.contextPath }/searchOwner'
-        		});
+            	$("#datepicker").datepicker();
+            	$( "#userName" ).autocomplete({
+            		source: '${pageContext. request. contextPath}/user/search'
+            	});
         	});
             
         </script>
@@ -63,9 +65,10 @@
 	        </div>
 	        <div class="row">
 	            <div class="form-group col-md-12">
-	                <label class="col-md-3 control-lable" for="owner.userId">Owner(First name)</label>
+	                <label class="col-md-3 control-lable" for="ownerString">Owner(First name)</label>
 	                <div class="col-md-7">
-	                     <form:input type="text" path="owner.userId" id="tags" class="form-control input-sm" />
+	                
+	                     <form:input type="text" path="ownerString" id="userName" class="form-control input-sm" />
 	                </div>
 	            </div>
 	        </div>
