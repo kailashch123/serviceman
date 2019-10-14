@@ -14,4 +14,10 @@ public interface IUserService {
 
 	List<String> search(String parameter);
 
+	User findUserByEmail(String emailStr);
+
+	User update(User user);
+
+	void deleteUserById(int userId);
+
 }

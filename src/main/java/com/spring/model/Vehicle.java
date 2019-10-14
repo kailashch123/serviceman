@@ -1,14 +1,12 @@
 package com.spring.model;
 
-import java.util.Date;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 public class Vehicle {
@@ -16,11 +14,12 @@ public class Vehicle {
 	private Integer vehicleId;
 	private String brand;
 	private String model;
-	private Date makeYear;
+	private int makeYear;
 	private String regNumber;
-	private User owner;
+	private User user;
 	private String status;
-	private String ownerString;
+	private String userString;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,12 +47,11 @@ public class Vehicle {
 		this.model = model;
 	}
 
-	@Temporal(TemporalType.DATE)
-	public Date getMakeYear() {
+	public int getMakeYear() {
 		return makeYear;
 	}
 
-	public void setMakeYear(Date makeYear) {
+	public void setMakeYear(int makeYear) {
 		this.makeYear = makeYear;
 	}
 
@@ -65,15 +63,15 @@ public class Vehicle {
 		this.regNumber = regNumber;
 	}
 
-	@ManyToOne
-	public User getOwner() {
-		return owner;
+	@ManyToOne(cascade=CascadeType.ALL)
+	public User getUser() {
+		return user;
 	}
 
-	public void setOwner(User owner) {
-		this.owner = owner;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
+	
 	public String getStatus() {
 		return status;
 	}
@@ -82,12 +80,13 @@ public class Vehicle {
 		this.status = status;
 	}
 	
-	public String getOwnerString() {
-		return ownerString;
+	@Transient
+	public String getUserString() {
+		return userString;
 	}
 
-	public void setOwnerString(String ownerString) {
-		this.ownerString = ownerString;
+	public void setUserString(String userString) {
+		this.userString = userString;
 	}
 
 }

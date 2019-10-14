@@ -39,5 +39,20 @@ public class UserServiceImpl implements IUserService {
 		return userDao.search(parameter);
 	}
 
+	@Override
+	public User findUserByEmail(String emailStr) {
+		return userDao.findUserByEmail(emailStr);
+	}
+
+	@Override
+	public User update(User user) {
+		return userDao.update(user);
+	}
+
+	@Override
+	public void deleteUserById(int userId) {
+		userDao.deleteUserById(userId);
+	}
+
 
 }

@@ -3,6 +3,9 @@ package com.spring.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaUpdate;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
@@ -32,6 +35,7 @@ public class VehicleDaoImpl extends AbstractDao<Integer, Vehicle> implements IVe
 	@Override
 	public Vehicle findVehicleById(int vehicleId) {
 		Vehicle vehicle = getByKey(vehicleId);
+		
 		return vehicle;
 	}
 
@@ -58,14 +62,7 @@ public class VehicleDaoImpl extends AbstractDao<Integer, Vehicle> implements IVe
 	}
 
 	@Override
-	public List<String> searchOwner(String parameter) {
-		Criteria cri = getSession().createCriteria(User.class);
-		cri.add(Restrictions.like("firstName", parameter, MatchMode.ANYWHERE));
-		List<User> users = cri.list();
-		List<String> stringList = new ArrayList<String>();
-		for(User u : users) {
-			stringList.add(u.getFirstName()+" "+u.getLastName()+" ("+u.getEmail()+")");
-		}
-		return stringList;
+	public void updateVehicle(Vehicle vehicle) {
+		getSession().update(vehicle);
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	    <title>Vehicle Registration</title>
+	    <title>Vehicle</title>
 	    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
      	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -21,7 +21,7 @@
         <script>
             $(document).ready(function() {
             	$("#datepicker").datepicker();
-            	$( "#userName" ).autocomplete({
+            	$( "#userString" ).autocomplete({
             		source: '${pageContext. request. contextPath}/user/search'
             	});
         	});
@@ -30,8 +30,8 @@
 	</head>
 	<body>
 	    <div class="generic-container">
-	    <div class="well lead">Vehicle Registration</div>
-	    <form:form method="POST" modelAttribute="vehicle" class="form-horizontal">
+	    <div class="well lead">Vehicle</div>
+	    <form:form method="POST" modelAttribute="vehicle" class="form-horizontal" autocomplete="off">
 	        <form:input type="hidden" path="vehicleId" id="vehicleId"/>
 	        <div class="row">
 	            <div class="form-group col-md-12">
@@ -55,26 +55,38 @@
 	                </div>
 	            </div>
 	        </div>
+	        <div class="row">
+	            <div class="form-group col-md-12">
+	                <label class="col-md-3 control-lable" for="regNumber">RegNumber</label>
+	                <div class="col-md-7">
+	                    <form:input type="text" path="regNumber" id="regNumber" class="form-control input-sm" />
+	                    <div class="has-error">
+	                        <form:errors path="regNumber" class="help-inline"/>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
 	         <div class="row">
 	            <div class="form-group col-md-12">
 	                <label class="col-md-3 control-lable" for="makeYear">MakeYear(MM/DD/YYYY)</label>
 	                <div class="col-md-7">
-	                    <form:input type="text" path="makeYear" id="datepicker" class="form-control input-sm" />
+	                <form:select path="makeYear">
+					    <form:options items="${years}" />
+					</form:select>
 	                </div>
 	            </div>
 	        </div>
 	        <div class="row">
 	            <div class="form-group col-md-12">
-	                <label class="col-md-3 control-lable" for="ownerString">Owner(First name)</label>
+	                <label class="col-md-3 control-lable" for="userString">Owner(First name)</label>
 	                <div class="col-md-7">
-	                
-	                     <form:input type="text" path="ownerString" id="userName" class="form-control input-sm" />
+	                     <form:input type="text" path="userString" id="userString" class="form-control input-sm" />
 	                </div>
 	            </div>
 	        </div>
 	        <div class="row" style="float: right;">
 	            <div class="form-actions floatRight">
-                    <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
+                    <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/vehiclelist' />">Cancel</a>
 	            </div>
 	        </div>
 	    </form:form>

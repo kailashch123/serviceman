@@ -48,9 +48,9 @@
 	                        	 	<a href="<c:url value='/vehicles-${user.userId}' />" >Vehicles</a>
 					        	</td>
 		                        <td>
-		                        	<a href="<c:url value='/editUser-${user.userId}' />" class="btn btn-success custom-width">edit</a>
+		                        	<a href="<c:url value='/edit-user-${user.userId}' />" class="btn btn-success custom-width">edit</a>
 		                        	&nbsp;&nbsp;&nbsp;&nbsp;
-		                        	<a href="<c:url value='/deleteUser-${user.userId}' />" class="btn btn-danger custom-width">delete</a>
+		                        	<a href="<c:url value='/delete-user-${user.userId}' />" class="btn btn-danger custom-width">delete</a>
 		                        </td>
 		                    </tr>
 		                </c:forEach>
@@ -60,7 +60,7 @@
             </table>
         </div>
         <div class="well">
-            <a href="<c:url value='/newUser' />">Add New User</a>
+            <a href="<c:url value='/newuser' />">Add New User</a>
         </div>
     </div>
 </body>

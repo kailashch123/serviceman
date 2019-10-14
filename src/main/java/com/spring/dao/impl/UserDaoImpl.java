@@ -46,4 +46,39 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements IUserDao 
 		return stringList;
 	}
 
+	@Override
+	public User findUserByEmail(String emailStr) {
+		Criteria cr = createEntityCriteria();
+		cr.add(Restrictions.eq("email", emailStr));
+		User user = (User) cr.uniqueResult();
+		return user;
+	}
+
+	@Override
+	public User update(User user) {
+		User userTemp = findById(user.getUserId());
+		if(user.getFirstName() != null)
+			userTemp.setFirstName(user.getFirstName());
+		if(user.getLastName() != null)
+			userTemp.setLastName(user.getLastName());
+		if(user.getPassword() != null)
+			userTemp.setPassword(user.getPassword());
+		if(user.getMobile() != null)
+			userTemp.setMobile(user.getMobile());
+		if(user.getDob() != null)
+			userTemp.setDob(user.getDob());
+		if(user.getAddress() != null)
+			userTemp.setAddress(user.getAddress());
+		getSession().update(userTemp);
+		return userTemp;
+	}
+
+	@Override
+	public void deleteUserById(int userId) {
+		Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("userId", userId));
+        User user = (User)crit.uniqueResult();
+        delete(user);
+	}
+
 }

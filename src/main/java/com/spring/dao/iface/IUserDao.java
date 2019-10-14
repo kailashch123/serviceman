@@ -14,4 +14,10 @@ public interface IUserDao {
 
 	List<String> search(String parameter);
 
+	User findUserByEmail(String emailStr);
+
+	User update(User user);
+
+	void deleteUserById(int userId);
+
 }

@@ -107,7 +107,7 @@ public class User {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hevicleId")
+	@PrimaryKeyJoinColumn
 	public List<Vehicle> getVehicles() {
 		return vehicles;
 	}

@@ -2,6 +2,8 @@ package com.spring.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,8 @@ import com.spring.model.Vehicle;
 import com.spring.service.iface.IVehicleService;
 
 @Service("vehicleService")
-public class VehicleDaoImpl implements IVehicleService {
+@Transactional
+public class VehicleServiceImpl implements IVehicleService {
 
 	
 	@Autowired
@@ -41,8 +44,8 @@ public class VehicleDaoImpl implements IVehicleService {
 	}
 
 	@Override
-	public List<String> searchOwner(String parameter) {
-		return vehicleDao.searchOwner(parameter);
+	public void updateVehicle(Vehicle vehicle) {
+		vehicleDao.updateVehicle(vehicle);
 	}
 
 }

@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                 <c:choose>
-                	<c:when test="${empty users}">
+                	<c:when test="${empty vehicles}">
 	                	<tr>
 	                        <td colspan="5">No data.</td>
 	                    </tr>
@@ -38,9 +38,9 @@
 		                        <td>${vehicle.makeYear}</td>
 		                        <td>${vehicle.regNumber}</td>
 		                        <td>
-		                        	<a href="<c:url value='/editVehicle/${vehicle.vehicleId}' />" class="btn btn-success custom-width">edit</a>
+		                        	<a href="<c:url value='/edit-vehicle/${vehicle.vehicleId}' />" class="btn btn-success custom-width">edit</a>
 		                        	&nbsp;&nbsp;&nbsp;
-		                        	<a href="<c:url value='/deleteVehicle/${vehicle.vehicleId}' />" class="btn btn-danger custom-width">delete</a>
+		                        	<a href="<c:url value='/delete-vehicle/${vehicle.vehicleId}' />" class="btn btn-danger custom-width">delete</a>
 		                        </td>
 		                    </tr>
 		                </c:forEach>
@@ -50,7 +50,7 @@
             </table>
         </div>
         <div class="well">
-            <a href="<c:url value='/newUser' />">Add New User</a>
+            <a href="<c:url value='/newvehicle' />">Add New Vehicle</a>
         </div>
     </div>
 </body>

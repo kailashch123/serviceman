@@ -18,6 +18,6 @@ public interface IVehicleDao {
 
 	void deleteVehicle(int vehicleId);
 
-	List<String> searchOwner(String parameter);
+	void updateVehicle(Vehicle vehicle);
 
 }
