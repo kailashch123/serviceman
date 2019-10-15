@@ -22,8 +22,9 @@ public class Service {
 	private List<ServicePart> parts;
 	private Date serviceDate;
 	private double labourCharge;
-	private String status;
 	private User mechanic;
+	private String status;
+	private BasicCheckList checkList;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,8 +46,8 @@ public class Service {
 		this.vehicle = vehicle;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "partId")
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="serviceId")
 	public List<ServicePart> getParts() {
 		return parts;
 	}
@@ -88,5 +89,16 @@ public class Service {
 	public void setMechanic(User mechanic) {
 		this.mechanic = mechanic;
 	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "checkListId", unique = true)
+	public BasicCheckList getCheckList() {
+		return checkList;
+	}
+
+	public void setCheckList(BasicCheckList checkList) {
+		this.checkList = checkList;
+	}
+	
 
 }

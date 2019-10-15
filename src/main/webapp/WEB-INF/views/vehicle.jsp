@@ -84,6 +84,21 @@
 	                </div>
 	            </div>
 	        </div>
+	        <div class="row">
+	            <div class="form-group col-md-12">
+	            	<c:choose>
+                         <c:when test="${edit}">
+                             <label class="col-md-3 control-lable" for="status">Status</label>
+			                <div class="col-md-7">
+			                    <form:input type="text" path="status" id="status" class="form-control input-sm" disabled="true" />
+			                </div>
+                         </c:when>
+                         <c:otherwise>
+                         </c:otherwise>
+                     </c:choose>
+	                
+	            </div>
+	        </div>
 	        <div class="row" style="float: right;">
 	            <div class="form-actions floatRight">
                     <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/vehiclelist' />">Cancel</a>

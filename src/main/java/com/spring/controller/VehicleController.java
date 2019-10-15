@@ -51,55 +51,16 @@ public class VehicleController {
 		return "vehiclelist";
 	}
 
-	@RequestMapping(value = "/vehicles/{vehicleId}", method = RequestMethod.GET)
-	public String getVehicleById(int vehicleId, ModelMap model) {
-		Vehicle vecicle = vehicleService.findVehicleById(vehicleId);
-		model.addAttribute("vehicle", vecicle);
-		return "";
-	}
-
-	@RequestMapping(value = "/vehicles", method = RequestMethod.POST)
-	public String newVehiclePost(Vehicle vehicle, ModelAndView mv) {
-		vehicleService.saveVehicle(vehicle);
-		return "redirect:/vehicles";
-
-	}
-
-	@RequestMapping(value = "/vehicles-{userId}", method = RequestMethod.GET)
-	public String findAllByUserId(@PathVariable("userId") int userId, ModelMap model) {
-		List<Vehicle> vehicles = vehicleService.findAllByUserId(userId);
-		model.addAttribute("vehicles", vehicles);
-		return "vehiclelist";
-	}
-
-	@RequestMapping(value = "/edit-vehicle-{vehicleId}", method = RequestMethod.GET)
-	public String editVehicle(@PathVariable("vehicleId") int vehicleId, ModelMap model) {
-		Vehicle vehicle = vehicleService.findVehicleById(vehicleId);
-		vehicle.setUserString(AppUtil.createOwnerString(vehicle.getUser()));
-		model.addAttribute("vehicle", vehicle);
-		return "vehicle";
-	}
-	@RequestMapping(value = "/edit-vehicle-{vehicleId}", method = RequestMethod.POST)
-	public String updateVehicle(Vehicle vehicle, ModelMap model) {
-		vehicleService.updateVehicle(vehicle);
-		vehicle.setUserString(AppUtil.createOwnerString(vehicle.getUser()));
-		model.addAttribute("vehicle", vehicle);
-		return "vehiclelist";
-	}
-	@RequestMapping(value = "/delete-vehicle-{vehicleId}", method = RequestMethod.GET)
-	public String deleteVehicle(int vehicleId) {
-		vehicleService.deleteVehicle(vehicleId);
-		return "redirect:/vehicles";
-	}
-	
 	@RequestMapping(value = "/newvehicle", method = RequestMethod.GET)
-	public String newVehicle(ModelMap model) {
+	public String newVehicleGet(Vehicle vehicle, ModelMap model) {
 		model.addAttribute("vehicle", new Vehicle());
+		model.addAttribute("edit", false);
 		return "vehicle";
+
 	}
-	
+
 	@RequestMapping(value = "/newvehicle", method=RequestMethod.POST)
-	public String newVehicle(Vehicle vehicle) {
+	public String newVehiclePost(Vehicle vehicle) {
 		String str = vehicle.getUserString();
 		String emailStr = str.substring(str.indexOf("(")+1, str.indexOf(")"));
 		User user = userService.findUserByEmail(emailStr);
@@ -107,7 +68,30 @@ public class VehicleController {
 		vehicle.setStatus("INACTIVE");
 		vehicleService.saveVehicle(vehicle);
 		return "redirect:/vehiclelist";
-		
+	}
+	
+	@RequestMapping(value = "/edit-vehicle-{vehicleId}", method = RequestMethod.GET)
+	public String editVehicle(@PathVariable("vehicleId") int vehicleId, ModelMap model) {
+		Vehicle vehicle = vehicleService.findVehicleById(vehicleId);
+		vehicle.setUserString(AppUtil.createOwnerString(vehicle.getUser()));
+		model.addAttribute("vehicle", vehicle);
+		model.addAttribute("edit", true);
+		return "vehicle";
+	}
+	@RequestMapping(value = "/edit-vehicle-{vehicleId}", method = RequestMethod.POST)
+	public String updateVehicle(Vehicle vehicle, ModelMap model) {
+		Vehicle temp = vehicleService.findVehicleById(vehicle.getVehicleId());
+		temp.setBrand(vehicle.getBrand());
+		temp.setModel(vehicle.getModel());
+		temp.setMakeYear(vehicle.getMakeYear());
+		temp.setRegNumber(vehicle.getRegNumber());
+		vehicleService.updateVehicle(temp);
+		return "redirect:/vehiclelist";
+	}
+	@RequestMapping(value = "/delete-vehicle-{vehicleId}", method = RequestMethod.GET)
+	public String deleteVehicle(@PathVariable("vehicleId") int vehicleId) {
+		vehicleService.deleteVehicle(vehicleId);
+		return "redirect:/vehiclelist";
 	}
 	
 	@RequestMapping(value = "/user/search", method = RequestMethod.GET, headers="Accept=*/*")

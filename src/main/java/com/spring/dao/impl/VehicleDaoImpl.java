@@ -1,18 +1,13 @@
 package com.spring.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaUpdate;
-
 import org.hibernate.Criteria;
-import org.hibernate.criterion.MatchMode;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.spring.dao.iface.IVehicleDao;
-import com.spring.model.User;
 import com.spring.model.Vehicle;
 
 @Repository("vehicleDao")
@@ -35,7 +30,7 @@ public class VehicleDaoImpl extends AbstractDao<Integer, Vehicle> implements IVe
 	@Override
 	public Vehicle findVehicleById(int vehicleId) {
 		Vehicle vehicle = getByKey(vehicleId);
-		
+		Hibernate.initialize(vehicle.getUser());
 		return vehicle;
 	}
 
@@ -51,14 +46,15 @@ public class VehicleDaoImpl extends AbstractDao<Integer, Vehicle> implements IVe
 	@Override
 	public List<Vehicle> findAllVehicle() {
 		Criteria criteria = createEntityCriteria();
+//		criteria.add(Restrictions.neOrIsNotNull("status", "INACTIVE"));
 		return criteria.list();
 	}
 
 	@Override
 	public void deleteVehicle(int vehicleId) {
-		Vehicle vehicle = getByKey(vehicleId);
+		Vehicle vehicle = findVehicleById(vehicleId);
 		vehicle.setStatus("INACTIVE");
-		save(vehicle);
+		updateVehicle(vehicle);
 	}
 
 	@Override

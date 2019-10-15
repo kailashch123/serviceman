@@ -1,12 +1,12 @@
 package com.spring.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ServicePart {
@@ -14,17 +14,18 @@ public class ServicePart {
 	private Integer partId;
 	private String name;
 	private String brand;
-	private Date makeYear;
+	private String vehicelModel;
+	private String modelNumber;
+	private String makeMonthYear;
+	private String supportYears;
+	private String material;
+	private String color;
 	private double pricePerUnit;
-	private double vatPercent;
 	private int quantity;
-	private String partFor;
 	private Date lastModifiedDate;
-	private String availability;
-	private Service service;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getPartId() {
 		return partId;
 	}
@@ -49,12 +50,52 @@ public class ServicePart {
 		this.brand = brand;
 	}
 
-	public Date getMakeYear() {
-		return makeYear;
+	public String getVehicelModel() {
+		return vehicelModel;
 	}
 
-	public void setMakeYear(Date makeYear) {
-		this.makeYear = makeYear;
+	public void setVehicelModel(String vehicelModel) {
+		this.vehicelModel = vehicelModel;
+	}
+
+	public String getModelNumber() {
+		return modelNumber;
+	}
+
+	public void setModelNumber(String modelNumber) {
+		this.modelNumber = modelNumber;
+	}
+
+	public String getMakeMonthYear() {
+		return makeMonthYear;
+	}
+
+	public void setMakeMonthYear(String makeMonthYear) {
+		this.makeMonthYear = makeMonthYear;
+	}
+
+	public String getSupportYears() {
+		return supportYears;
+	}
+
+	public void setSupportYears(String supportYears) {
+		this.supportYears = supportYears;
+	}
+
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public double getPricePerUnit() {
@@ -65,28 +106,12 @@ public class ServicePart {
 		this.pricePerUnit = pricePerUnit;
 	}
 
-	public double getVatPercent() {
-		return vatPercent;
-	}
-
-	public void setVatPercent(double vatPercent) {
-		this.vatPercent = vatPercent;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-	}
-
-	public String getPartFor() {
-		return partFor;
-	}
-
-	public void setPartFor(String partFor) {
-		this.partFor = partFor;
 	}
 
 	public Date getLastModifiedDate() {
@@ -96,22 +121,5 @@ public class ServicePart {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
-
-	public String getAvailability() {
-		return availability;
-	}
-
-	public void setAvailability(String availability) {
-		this.availability = availability;
-	}
 	
-	@ManyToOne
-	public Service getService() {
-		return service;
-	}
-
-	public void setService(Service service) {
-		this.service = service;
-	}
-
 }

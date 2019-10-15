@@ -12,7 +12,7 @@
 <body>
     <div class="generic-container">
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="lead">List of Users </span></div>
+            <div class="panel-heading"><span class="lead">Vehicle List</span></div>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -20,6 +20,8 @@
                         <th>Model</th>
                         <th>MakeYear</th>
                         <th>RegNumber</th>
+                        <th>Status</th>
+                        <th>Owner(UserID)</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -37,10 +39,12 @@
 		                        <td>${vehicle.model}</td>
 		                        <td>${vehicle.makeYear}</td>
 		                        <td>${vehicle.regNumber}</td>
+		                        <td>${vehicle.status}</td>
+		                        <td>${vehicle.user.loginName}</td>
 		                        <td>
-		                        	<a href="<c:url value='/edit-vehicle/${vehicle.vehicleId}' />" class="btn btn-success custom-width">edit</a>
+		                        	<a href="<c:url value='/edit-vehicle-${vehicle.vehicleId}' />" class="btn btn-success custom-width">edit</a>
 		                        	&nbsp;&nbsp;&nbsp;
-		                        	<a href="<c:url value='/delete-vehicle/${vehicle.vehicleId}' />" class="btn btn-danger custom-width">delete</a>
+		                        	<a href="<c:url value='/delete-vehicle-${vehicle.vehicleId}' />" class="btn btn-danger custom-width">delete</a>
 		                        </td>
 		                    </tr>
 		                </c:forEach>
