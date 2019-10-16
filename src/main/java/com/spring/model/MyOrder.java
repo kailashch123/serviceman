@@ -18,7 +18,7 @@ public class MyOrder {
 	private String customerName;
 	private String customerMobile;
 	private String customerEmail;
-	private Date serviceDate;
+	private String serviceDate;
 	private String vehicleBrand;
 	private String vehicleModel;
 	private String customerRecomendation;
@@ -26,7 +26,7 @@ public class MyOrder {
 	private String status;
 	private double expectedServiceCost;
 	private Date deliveryDateTime;
-	private String delDate;
+	private Date delDate;
 	private String delTime;
 
 	@Id
@@ -71,12 +71,11 @@ public class MyOrder {
 		this.customerEmail = customerEmail;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getServiceDate() {
+	public String getServiceDate() {
 		return serviceDate;
 	}
 
-	public void setServiceDate(Date serviceDate) {
+	public void setServiceDate(String serviceDate) {
 		this.serviceDate = serviceDate;
 	}
 
@@ -138,11 +137,11 @@ public class MyOrder {
 	}
 
 	@Transient
-	public String getDelDate() {
+	public Date getDelDate() {
 		return delDate;
 	}
 
-	public void setDelDate(String delDate) {
+	public void setDelDate(Date delDate) {
 		this.delDate = delDate;
 	}
 

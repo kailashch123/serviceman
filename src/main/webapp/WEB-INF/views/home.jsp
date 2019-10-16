@@ -6,5 +6,6 @@
 <a href="<c:url value='/userlist'/>">User List</a><br/>
 <a href="<c:url value='/vehiclelist'/>">Vehicle List</a><br/>
 <a href="<c:url value='/orderlist'/>">Order List</a><br/>
+<a href="<c:url value='/mechaniclist'/>">Mechanic List</a><br/>
 
 </p>

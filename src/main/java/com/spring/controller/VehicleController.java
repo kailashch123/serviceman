@@ -65,7 +65,7 @@ public class VehicleController {
 		String emailStr = str.substring(str.indexOf("(")+1, str.indexOf(")"));
 		User user = userService.findUserByEmail(emailStr);
 		vehicle.setUser(user);
-		vehicle.setStatus("INACTIVE");
+		vehicle.setStatus("SUBMITTED");
 		vehicleService.saveVehicle(vehicle);
 		return "redirect:/vehiclelist";
 	}

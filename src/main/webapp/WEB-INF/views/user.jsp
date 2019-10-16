@@ -79,9 +79,10 @@
 	                <div class="col-md-7">
 	                    <form:select path="role">
 						   <form:option value="NONE" label="--Select--"/>
-						   <form:option value="USER">User</form:option>
-						   <form:option value="ADMIN">Admin</form:option>
-						   <form:option value="DBA">Dba</form:option>
+						   <form:option value="USER">USER</form:option>
+						   <form:option value="ADMIN">ADMIN</form:option>
+						   <form:option value="DBA">DBA</form:option>
+						   <form:option value="DBA">MECHANIC</form:option>
 						</form:select>
 	                    <div class="has-error">
 	                        <form:errors path="role" class="help-inline"/>

@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 public class User {
@@ -27,6 +28,8 @@ public class User {
 	private Date dob;
 	private List<Vehicle> vehicles;
 	private String address;
+	private int orderPending;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -120,5 +123,15 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	@Transient
+	public int getOrderPending() {
+		return orderPending;
+	}
+
+	public void setOrderPending(int orderPending) {
+		this.orderPending = orderPending;
+	}
+	
 
 }
